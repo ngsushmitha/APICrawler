@@ -66,7 +66,7 @@ class Crawler():
         try:
             engine = create_engine('postgresql://user:pass@db',echo=True)
             df.to_sql('test_table',con = engine,if_exists = 'append',index = False)
-            print(pd.DataFrame(engine.execute("select count(*) from test_table").fetchall(),
+            print(pd.DataFrame(engine.execute("select * from test_table").fetchall(),
                   columns=['API','Description','Auth','HTTPS','Cors','Link','Category']).to_string())
         except:
             print('Cannot connect to database')
