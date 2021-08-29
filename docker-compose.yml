@@ -1,0 +1,18 @@
+version: '3'
+services:
+  try:
+        build: ./
+        command: python Crawler.py
+  db:
+    image: "postgres:11"
+    container_name: "my_container"
+    restart: always 
+    ports:
+      - "5333:5333"
+    environment:
+      POSTGRES_USER: 'user'
+      POSTGRES_PASSWORD: 'pass'
+      POSTGRES_HOST: 'localhost'
+      POSTGRES_PORT: '5333'
+           
+     
